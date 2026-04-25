@@ -1,0 +1,105 @@
+{
+  "name": "daisy",
+  "scopeName": "source.daisy",
+  "fileTypes": ["daisy"],
+  "patterns": [
+    {"include": "#comments"},
+    {"include": "#type-definitions"},
+    {"include": "#map-bounding-function"},
+    {"include": "#declaration-keywords"},
+    {"include": "#vector-specialization"},
+    {"include": "#generic-parameters"},
+    {"include": "#support-types"},
+    {"include": "#function-calls"},
+    {"include": "#types-as-strings"},
+    {"include": "#literals"},
+    {"include": "#constants-language"},
+    {"include": "#operators"},
+    {"include": "#punctuation"}
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {"name": "comment.block", "begin": "--\\[\\[", "end": "\\]\\]"},
+        {"name": "comment.line.double-dash", "match": "--.*$"}
+      ]
+    },
+    "type-definitions": {
+      "match": "\\b(type)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+      "captures": {
+        "1": {"name": "keyword.control"},
+        "2": {"name": "support.type"}
+      }
+    },
+    "map-bounding-function": {
+      "match": "(?<=map)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(?==.*\\()",
+      "captures": {
+        "1": {"name": "entity.name.function"}
+      }
+    },
+    "declaration-keywords": {
+      "patterns": [
+        {"match": "\\b(component|archetype|tag|system|option|enum|map|set)\\b", "name": "keyword.control"},
+        {"match": "\\bstruct\\b", "name": "entity.name.function"}
+      ]
+    },
+    "vector-specialization": {
+      "patterns": [
+        {"match": "\\b(vector)(?=\\()", "name": "entity.name.function"},
+        {"match": "\\bvector\\b", "name": "variable.parameter"}
+      ]
+    },
+    "generic-parameters": {
+      "patterns": [
+        {"match": "(?<=[<,])\\s*([A-Z])\\s*(?=[>,])", "name": "variable.parameter"},
+        {"match": "(?<=\\{|\\[|:)\\s*([A-Z])\\s*(?=\\}|\\]|:|,)", "name": "variable.parameter"},
+        {"match": "(?<=Value:\\s*)([A-Z])\\b", "name": "variable.parameter"}
+      ]
+    },
+    "support-types": {
+      "patterns": [
+        {"match": "\\b(u8|i8|u16|i16|u32|i32|f16|f32|f64)\\b(?=\\()", "name": "entity.name.function"},
+        {"match": "\\b(boolean|CFrame|unknown|Instance|BrickColor|Color3|DateTime|DateTimeMillis)\\b(?!\\s*=)", "name": "support.type"},
+        {"match": "\\b(u8|i8|u16|i16|u32|i32|f16|f32|f64)\\b", "name": "constant.numeric"}
+      ]
+    },
+    "function-calls": {
+      "patterns": [
+        {"match": "\\b(mut)(?=:)", "name": "entity.name.function"},
+        {"match": "\\b([A-Za-z_][A-Za-z0-9_]*)(?=\\()", "name": "entity.name.function"}
+      ]
+    },
+    "types-as-strings": {
+      "match": "\\bstring\\b",
+      "name": "string.quoted.double"
+    },
+    "literals": {
+      "patterns": [
+        {"match": "\\b(true|false)\\b", "name": "constant.numeric"},
+        {"match": "\\b[0-9]+(?:\\.[0-9]+)?\\b", "name": "constant.numeric"},
+        {
+          "name": "string.quoted.double",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {"match": "\\\\.", "name": "constant.character.escape"}
+          ]
+        }
+      ]
+    },
+    "constants-language": {
+      "match": "\\b(Camel|Pascal|Snake|PreStartup|Startup|PostStartup|PreRender|PreAnimation|PreSimulation|PostSimulation|First|PreUpdate|Update|PostUpdate|Last)\\b",
+      "name": "constant.language"
+    },
+    "operators": {
+      "match": "(=|\\?|:|\\.\\.|\\.\\.\\.|\\.|<|>)",
+      "name": "keyword.operator"
+    },
+    "punctuation": {
+      "patterns": [
+        {"match": ",", "name": "punctuation.separator"},
+        {"match": "[\\[\\]{}()]", "name": "punctuation"}
+      ]
+    }
+  }
+}
