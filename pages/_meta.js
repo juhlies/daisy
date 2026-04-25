@@ -3,5 +3,5 @@ export default {
     'getting-started': 'Getting Started',
     'source-files': 'Source Files',
     'cli': 'Command-Line Usage',
-    'api': 'Generated API'
+    'lua-api': 'Generated API',
 }

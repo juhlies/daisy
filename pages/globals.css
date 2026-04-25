@@ -1,0 +1,27 @@
+:root {
+    --nextra-primary-hue: 266deg;
+    --nextra-primary-saturation: 85%;
+    --nextra-primary-lightness: 58%;
+}
+
+.dark {
+    --nextra-primary-hue: 267deg;
+    --nextra-primary-saturation: 84%;
+    --nextra-primary-lightness: 81%;
+}
+
+.nextra-code pre {
+    background-color: rgb(220, 224, 232);
+}
+
+.dark .nextra-code pre {
+    background-color: rgb(17, 17, 27);
+}
+
+.nextra-code > div:first-child {
+    background-color: rgb(239, 241, 245);
+}
+
+.dark .nextra-code > div:first-child {
+    background-color: rgb(30, 30, 46);
+}
