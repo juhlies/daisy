@@ -1,0 +1,74 @@
+---
+title: Introduction
+---
+
+import { Steps } from 'nextra/components'
+
+## First Steps
+<Steps>
+### Writing Your First Source File
+Daisy's language is really simple, you will learn more through the guide.
+First create a ```.daisy``` file in your desired directory, then copy the example below into your file:
+```daisy
+option Outputs = {
+    Components = "Path/To/Components",
+    Scheduler = "Path/To/Scheduler",
+    Systems = "Path/To/Systems"
+    World = "Path/To/World",
+    Tags = "Path/To/Tags",
+}
+ 
+component Health = u8(0..100)
+tag IsPoisoned
+ 
+system PoisonHurts = {
+    Query = {mut:Health},
+    With = {IsPoisoned},
+    Phase = Update
+}
+```
+ 
+### Compiling Your Source File
+Open a terminal in the directory you created your file and run the following command:
+
+```sh
+daisy file-name
+```
+
+### Writing System Logic
+```luau filename="path/to/systems/PoisonHurts.luau"
+--!optimize 2
+--!native
+--!strict
+
+local World = require(Path/To/World)
+
+local Components = require(Path/To/Components)
+local Tags = require(Path/To/Tags)
+
+type Mutable = {
+    health: Components.Health,
+}
+
+return function(entity: World.Entity, mut: Mutable, delta_time: number)
+    mut.health -= 1 * delta_time --User Written
+end
+```
+
+### Using The Generated Code
+```luau filename="ServerScriptService/Start.server.luau"
+local ECS = path.to.ECS
+
+local World = require(ECS.World)
+local Scheduler = require(ECS.Scheduler)
+
+local Components = require(ECS.Components)
+local Tags = require(ECS.Tags)
+
+local entity = World.Spawn()
+World.Set(entity, Components.Health, 100)
+World.Add(entity, Tags.IsPoisoned)
+
+Scheduler.Start()
+```
+</Steps>
