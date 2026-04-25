@@ -2,7 +2,7 @@
 title: Home
 ---
 # Daisy
-Daisy takes a simple, declarative source file and generates a fully structured ECS tailored to your project.
+An IDL compiler for defining and generating ECS implementations.
 ## Performance
 Daisy aims to generate the most performant ECS for your experience, based on the components, archetypes, and systems you define.
 ## Get Started
