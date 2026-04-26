@@ -5,7 +5,7 @@ title: Options
 # Options
 Options go at the top of a source file and allow you to configure Daisy's output.
 
-```daisy
+```daisy copy
 option [OPTION] = [VALUE]
 ````
 
@@ -18,7 +18,7 @@ Controls the casing used when generating functions and parameters.
 | Function | `Pascal` | `Camel`, `Pascal`, `Snake` |
 | Parameter | `Snake` | `Camel`, `Pascal`, `Snake` |
 
-```daisy
+```daisy copy
 option Casing = {
     Function = Camel,
     Parameter = Pascal
@@ -33,7 +33,7 @@ Allows you to specify where Daisy generates output files, relative to the source
 | :---- | :---- |
 | All | `"./"` |
 
-```daisy
+```daisy copy
 option Output = {
     Archetypes = "path/to/Archetypes",
     Components = "path/to/Components",
@@ -53,7 +53,7 @@ Whether to include the `--!native` flag at the top of compiled modules.
 | :---- | :---- |
 | `true`  | `true`, `false` |
 
-```daisy
+```daisy copy
 option Native = false
 ```
 
@@ -64,6 +64,6 @@ Whether to include the `--!strict` flag at the top of compiled modules.
 | :---- | :---- |
 | `true`  | `true`, `false` |
 
-```daisy
+```daisy copy
 option Strict = false
 ```

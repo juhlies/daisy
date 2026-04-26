@@ -8,6 +8,6 @@ Tags are useful for marking entities with a boolean state without any additional
 
 ## Defining Tags
 You can define a tag using the `tag` keyword followed by the tag name.
-```daisy
+```daisy copy
 tag IsPoisoned
 ```

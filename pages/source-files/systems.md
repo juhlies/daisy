@@ -7,7 +7,7 @@ A `system` is a process that runs on all entities matching a given set of compon
 
 ## Defining Systems
 You can define a system using the `system` keyword followed by the system name and its configuration block.
-```daisy
+```daisy copy
 system PoisonHurts = {
     Query = {mut:Health}
     With = {IsPoisoned}
@@ -20,14 +20,14 @@ A `Query` defines which components a system will access on each matching entity.
 
 ### Immutable Queries
 By default, components in a query are accessed immutably, the system can read their values but cannot modify them.
-```daisy
+```daisy copy
 Query = {Health, Position}
 ```
 In this example, the system runs on all entities that have both `Health` and `Position`, but neither can be changed.
 
 ### Mutable Queries
 To modify a component, you must explicitly mark it with the `mut:` prefix. You can freely mix mutable and immutable components in the same query.
-```daisy
+```daisy copy
 Query = {mut:Health, Position}
 ```
 Here, `Health` can be modified, while `Position` is read-only.
@@ -37,19 +37,19 @@ Systems can further filter which entities they operate on using `With` and `With
 
 ### With
 The `With` field ensures only entities that possess specific components or tags are included.
-```daisy
+```daisy copy
 With = {IsPoisoned}
 ```
 
 ### Without
 The `Without` field excludes entities that possess certain components or tags.
-```daisy
+```daisy copy
 Without = {IsDead}
 ```
 
 ### Combining Filters
 `With` and `Without` can be used together for precise control over which entities a system targets:
-```daisy
+```daisy copy
 system PoisonHurts = {
     Query = {mut:Health}
     With = {IsPoisoned}
@@ -85,7 +85,7 @@ Each RunService event (excluding Heartbeat) corresponds to its own phase.
 ### Priority
 Priority controls the order in which systems within the same phase execute. A lower number runs first, and a higher number runs later. If no priority is specified, systems run in the order they were declared.
 
-```daisy
+```daisy copy
 RunFirst = {
     Query = {MyComponent},
     Phase = Update,

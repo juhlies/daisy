@@ -8,6 +8,6 @@ Components are pure data, they contain no logic of their own.
 
 ## Defining Components
 You can define a component using the `component` keyword followed by the component name and its data type.
-```daisy
+```daisy copy
 component Health = u8
 ```

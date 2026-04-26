@@ -75,13 +75,13 @@ Unlike integers, the bit size of a floating point does not correlate to a hard r
 ### Bounding Numbers
 The values of numbers can be bounded by placing [a range](#ranges) within parenthesis after the type.<br/>
 An example health u8 number type from `0` to `100` can be written like:
-```daisy
+```daisy copy
 u8(0..100)
 u8(..100)
 ```
 
 ### Example Usage
-```daisy
+```daisy copy
 component Health = u8(0..100)
 component UserId = f64
 ```
@@ -92,12 +92,12 @@ Strings are Luau's text container, in daisy a string can be defined using the `s
 ### Bounding Strings
 The length of strings can be bounded by placing [a range](#ranges) within parenthesis after the type.<br/>
 For example, if you wanted to bound a string between `3` and `20` characters you can do:
-```daisy
+```daisy copy
 string(3..20)
 ```
 
 ### Example usage
-```daisy
+```daisy copy
 component UUID = string(36)
 component Username = string(3..20)
 ```
@@ -111,7 +111,7 @@ They can be defined using the `boolean` type.
     You would usually use a `tag` instead of doing this! ex. `tag IsRunning`
 </Callout>
 
-```daisy
+```daisy copy
 component IsRunning = boolean
 ```
 
@@ -125,7 +125,7 @@ For example, if you wanted to create a unit vector (length between `0` and `1`) 
 
 ### Specifying Encoding
 Vectors can be passed a number type within angular brackets after the type, to be used for encoding. For example, an `i16` vector can be defined like so:
-```daisy
+```daisy copy
 type VectorI16 = vector<i16>
 ```
 <Callout type="warning">
@@ -133,7 +133,7 @@ type VectorI16 = vector<i16>
 </Callout>
 
 ### Example Usage
-```daisy
+```daisy copy
 type Position = vector
 type UnitVector = vector(0..1)
 type VectorU8 = vector<u8>
@@ -145,33 +145,33 @@ component Position = Position
 Maps are key-value pair tables that have keys of one type, and values of the same or different type.<br/>
 They can be defined using the `map` type. For example, a map of `string` keys and `f64` values would look like:
 
-```daisy
+```daisy copy
 map StringToNumber = {[string]: f64}
 ```
 
 ### Bounding Maps
 The number of elements in a map can be bounded by placing [a range](#ranges) within parenthesis after the type.<br/>
 For example, if you wanted to bound the number of elements between `1` and `100` you can do:
-```daisy
+```daisy copy
 map StringToNumber = {[string]: f64}(1..100)
 ```
 
 ### Generics
 Maps support the use of generics. Generics can be a powerful tool for code reuse. For example a map template can be defined as:
 
-```daisy
+```daisy copy
 map Map<K, V> = {[K]: V}
 map StringToNumber = Map<[string], f64>
 ```
 
 ### Example Usage
-```daisy
+```daisy copy
 map UserIdToUsername = {[f64]: string}
 ```
 
 ## Sets
 Sets are a map of static string keys to `true`. They can be defined using the `set` type. For example, a set of feature flags would look like:
-```daisy
+```daisy copy
 set Flags = {
     FeatureA,
     FeatureB,
@@ -185,7 +185,7 @@ Daisy supports two types of enums, unit and tagged enums
 ### Unit Enums
 Unit enums represent a set of possible values<br/>
 They are defined using the ```enum``` type. For example a unit enum representing the state of a character:
-```daisy
+```daisy copy
 enum CharacterStatus = {Idling, Walking, Running, Jumping, Falling}
 ```
 
@@ -193,7 +193,7 @@ enum CharacterStatus = {Idling, Walking, Running, Jumping, Falling}
 Tagged enums are a set of possible variants, each with some data attached.<br/>
 They can be defined using the ```enum``` type, then a string which is used for the tag field name, followed by the variants.<br/>
 Each variant is defined by a tag, followed by a struct. Variants are separated by a comma.
-```daisy
+```daisy copy
 enum MouseEvent = "Type" {
     Move = {
         Delta: vector,
@@ -211,7 +211,7 @@ enum MouseEvent = "Type" {
 ```
 Tagged enums are a very powerful way to represent many different types of data.<br/>
  While not supported by the compiler, a union type can be substituted using tagged enums:
-```daisy
+```daisy copy
 enum Union = "Type" {
     Number = {
         Value: f64
@@ -232,7 +232,7 @@ type Union =
 ### Generics
 Like maps, tagged enums also support generics.
 For example, a tagged enum union template can be defined as:
-```daisy
+```daisy copy
 enum Union<A, B> = "Type" {
     A = {
         Value: A
@@ -248,7 +248,7 @@ enum NumberStringUnion = Union<f64, string>
 ## Structs
 Structs are a fixed set of statically named keys and values.<br/>
 They can be defined using the `struct` type. For example, a struct representing a theoretical game entity would look like:
-```daisy
+```daisy copy
 type Entity = struct(
     Health = u8(0..100),
     Position = vector,
@@ -256,25 +256,25 @@ type Entity = struct(
 )
 ```
 Structs can be used inline anywhere a type expression is valid:
-```daisy
+```daisy copy
 component Transform = struct(Position = vector, Rotation = CFrame)
 ```
 
 Fields can be marked optional with `?`:
-```daisy
+```daisy copy
 type Config = struct(Name = string, Level = u8?, Active = boolean)
 ```
 
 ## Unknowns
 The `unknown` type represents values which cannot be known until runtime.<br/>
 For unions, use tagged enums instead.
-```daisy
+```daisy copy
 type Mystery = unknown
 ```
 
 ## Instances
 Daisy supports Roblox instances. They can be defined using the `Instance` type.
-```daisy
+```daisy copy
 component Character = Instance
 ```
 
@@ -286,7 +286,7 @@ component Character = Instance
 
 ### Specifying Class
 Instances can be further narrowed by specifying their class, for example:
-```daisy
+```daisy copy
 component Player = Instance(Player)
 ```
 
@@ -297,13 +297,13 @@ component Player = Instance(Player)
 
 ## CFrames
 CFrames represent a point and rotation about it in 3D space, most often as a point in 3D space. They can be defined using the `CFrame` type.
-```daisy
+```daisy copy
 type Location = CFrame
 ```
 
 ### Specifying Encoding
 CFrames can be passed two number types within angular brackets after the type, to be used for the positional and rotational encoding respectively. For example, a CFrame which uses an `i16` for its positional encoding and a `f16` for its rotational encoding can be defined like so:
-```daisy
+```daisy copy
 type MyCFrame = CFrame<i16, f16>
 ```
 

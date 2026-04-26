@@ -8,7 +8,7 @@ import { Steps } from 'nextra/components'
 <Steps>
 ### Writing Your First Source File
 First create a ```.daisy``` file in your desired directory, then copy the example below into your file:
-```daisy
+```daisy copy
 option Outputs = {
     Components = "Path/To/Components",
     Scheduler = "Path/To/Scheduler",
@@ -30,14 +30,14 @@ system PoisonHurts = {
 ### Compiling Your Source File
 Open a terminal in the directory you created your file and run the following command:
 
-```sh
+```sh copy
 daisy file-name
 ```
 
 ### Writing System Logic
 On first compile, systems will return an empty function you are able to write your logic in.<br/>
 In this example, we tell it to remove `1` health from entities with the `Health` component:
-```luau filename="path/to/systems/PoisonHurts.luau"
+```luau copy filename="path/to/systems/PoisonHurts.luau"
 --!optimize 2
 --!native
 --!strict
@@ -59,7 +59,7 @@ end
 ### Using The Generated Code
 In this example, we create an entity with `100` health and give it the `IsPoisoned` tag so the system in the previous example will act on it.<br/>
 Before the [Scheduler](/generated-api/scheduler) will run any of your [systems](/source-files/systems), you will need to run its `.Start` function:
-```luau filename="ServerScriptService/Start.server.luau"
+```luau copy filename="ServerScriptService/Start.server.luau"
 local ECS = path.to.ECS
 
 local World = require(ECS.World)
