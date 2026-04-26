@@ -1,6 +1,6 @@
 import meta from "../../../pages/_meta.js";
+import generated_api_meta from "../../../pages/generated-api/_meta.js";
 import getting_started_meta from "../../../pages/getting-started/_meta.js";
-import lua_api_meta from "../../../pages/lua-api/_meta.js";
 import source_files_meta from "../../../pages/source-files/_meta.js";
 export const pageMap = [{
   data: meta
@@ -10,6 +10,36 @@ export const pageMap = [{
   frontMatter: {
     "title": "Command-Line Usage"
   }
+}, {
+  name: "generated-api",
+  route: "/generated-api",
+  children: [{
+    data: generated_api_meta
+  }, {
+    name: "factory",
+    route: "/generated-api/factory",
+    frontMatter: {
+      "title": "Factory"
+    }
+  }, {
+    name: "scheduler",
+    route: "/generated-api/scheduler",
+    frontMatter: {
+      "title": "Scheduler"
+    }
+  }, {
+    name: "systems",
+    route: "/generated-api/systems",
+    frontMatter: {
+      "title": "Systems"
+    }
+  }, {
+    name: "world",
+    route: "/generated-api/world",
+    frontMatter: {
+      "title": "World"
+    }
+  }]
 }, {
   name: "getting-started",
   route: "/getting-started",
@@ -34,36 +64,6 @@ export const pageMap = [{
   frontMatter: {
     "title": "Home"
   }
-}, {
-  name: "lua-api",
-  route: "/lua-api",
-  children: [{
-    data: lua_api_meta
-  }, {
-    name: "factory",
-    route: "/lua-api/factory",
-    frontMatter: {
-      "title": "Factory"
-    }
-  }, {
-    name: "scheduler",
-    route: "/lua-api/scheduler",
-    frontMatter: {
-      "title": "Scheduler"
-    }
-  }, {
-    name: "systems",
-    route: "/lua-api/systems",
-    frontMatter: {
-      "title": "Systems"
-    }
-  }, {
-    name: "world",
-    route: "/lua-api/world",
-    frontMatter: {
-      "title": "World"
-    }
-  }]
 }, {
   name: "source-files",
   route: "/source-files",
