@@ -13,9 +13,15 @@ export default {
     project: {
         link: 'https://github.com/juhlies/daisy',
     },
+    editLink: {
+        component: null
+    },
+    feedback: {
+        content: null
+    },
     docsRepositoryBase: 'https://github.com/juhlies/daisy',
     footer: {
-        content: `© ${new Date().getFullYear()} juhlie`,
+        content: null
     },
     primaryHue: {light: 266, dark: 267},
     primarySaturation: {light: 85, dark: 84},

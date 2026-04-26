@@ -5,7 +5,7 @@ import {join} from 'path'
 
 const daisy_grammar = JSON.parse(
     readFileSync(join(process.cwd(), 'public/syntax/daisy.tmLanguage.json'), 'utf-8')
-)
+) 
 
 const withNextra = nextra({
     theme: 'nextra-theme-docs',
