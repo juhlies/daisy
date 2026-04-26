@@ -3,15 +3,18 @@ title: Options
 ---
 
 # Options
-Options go at the top of a source file, and allow you to configure the output of Daisy.
+Options go at the top of a source file and allow you to configure Daisy's output.
+
 ```daisy
 option [OPTION] = [VALUE]
-```
+````
 
 ## `Casing`
-Controls the casing with which functions and parameters will generate.
-| Type | Default | Options |
-|:---- | ---- | ----: |
+
+Controls the casing used when generating functions and parameters.
+
+| Type| Default | Options |
+| :---- | :---- | :---- |
 | Function | `Pascal` | `Camel`, `Pascal`, `Snake` |
 | Parameter | `Snake` | `Camel`, `Pascal`, `Snake` |
 
@@ -23,7 +26,13 @@ option Casing = {
 ```
 
 ## `Output`
-Allows you to specify where Daisy will generate the respective output files.
+
+Allows you to specify where Daisy generates output files, relative to the source file.
+
+| Type | Default |
+| :---- | :---- |
+| All | `"./"` |
+
 ```daisy
 option Output = {
     Archetypes = "path/to/Archetypes",
@@ -33,23 +42,28 @@ option Output = {
     Systems = "path/to/Systems",
     World = "path/to/World",
     Tags = "path/to/Tags"
-} 
+}
 ```
+The last segment of each path is used as the output file name (e.g. `"path/to/Archetypes"` becomes `Archetypes.luau`).
 
 ## `Native`
-Wether or not to include the `--!native` flag at the top of compiled modules.
+Whether to include the `--!native` flag at the top of compiled modules.
+
 | Default | Options |
-|:---- | ----:|
-| `true` | `true`, `false` |
+| :---- | :---- |
+| `true`  | `true`, `false` |
+
 ```daisy
 option Native = false
 ```
 
 ## `Strict`
-Wether or not to include the `--!strict` flag at the top of compiled modules.
+Whether to include the `--!strict` flag at the top of compiled modules.
+
 | Default | Options |
-|:---- | ----:|
-| `true` | `true`, `false` |
+| :---- | :---- |
+| `true`  | `true`, `false` |
+
 ```daisy
 option Strict = false
 ```

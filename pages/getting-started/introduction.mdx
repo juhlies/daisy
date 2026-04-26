@@ -7,7 +7,6 @@ import { Steps } from 'nextra/components'
 ## First Steps
 <Steps>
 ### Writing Your First Source File
-Daisy's language is really simple, you will learn more through the guide.
 First create a ```.daisy``` file in your desired directory, then copy the example below into your file:
 ```daisy
 option Outputs = {
@@ -36,6 +35,8 @@ daisy file-name
 ```
 
 ### Writing System Logic
+On first compile, systems will return an empty function you are able to write your logic in.<br/>
+In this example, we tell it to remove `1` health from entities with the `Health` component:
 ```luau filename="path/to/systems/PoisonHurts.luau"
 --!optimize 2
 --!native
@@ -49,13 +50,15 @@ local Tags = require(Path/To/Tags)
 type Mutable = {
     health: Components.Health,
 }
-
+ 
 return function(entity: World.Entity, mut: Mutable, delta_time: number)
-    mut.health -= 1 * delta_time --User Written
+    mut.health -= 1 * delta_time
 end
 ```
 
 ### Using The Generated Code
+In this example, we create an entity with `100` health and give it the `IsPoisoned` tag so the system in the previous example will act on it.<br/>
+Before the [Scheduler](/generated-api/scheduler) will run any of your [systems](/source-files/systems), you will need to run its `.Start` function:
 ```luau filename="ServerScriptService/Start.server.luau"
 local ECS = path.to.ECS
 

@@ -3,7 +3,7 @@ title: Systems
 ---
 
 # Systems
-A `system` is a process that runs on all entities matching a given set of component requirements. Systems are where all of your game's logic lives — each system is responsible for one focused behavior.
+A `system` is a process that runs on all entities matching a given set of component requirements. Systems are where all of your game's logic lives, each system is responsible for one focused behavior.
 
 ## Defining Systems
 You can define a system using the `system` keyword followed by the system name and its configuration block.
@@ -19,7 +19,7 @@ system PoisonHurts = {
 A `Query` defines which components a system will access on each matching entity. Only entities that satisfy the query will be processed by the system.
 
 ### Immutable Queries
-By default, components in a query are accessed immutably — the system can read their values but cannot modify them.
+By default, components in a query are accessed immutably, the system can read their values but cannot modify them.
 ```daisy
 Query = {Health, Position}
 ```

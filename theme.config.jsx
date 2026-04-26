@@ -15,7 +15,7 @@ export default {
     },
     docsRepositoryBase: 'https://github.com/juhlies/daisy',
     footer: {
-        content: `© ${new Date().getFullYear()} Daisy (most of the documentation is lowkey skidded from blink)`,
+        content: `© ${new Date().getFullYear()} juhlie`,
     },
     primaryHue: {light: 266, dark: 267},
     primarySaturation: {light: 85, dark: 84},

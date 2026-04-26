@@ -3,7 +3,7 @@ title: Tags
 ---
 
 # Tags
-A `tag` is a kind of `component` that carries no data, its presence on an entity alone signals that something is true about it.<br/>
+A `tag` is a kind of `component` that carries no data, its presence on an entity signals that something is true about it.<br/>
 Tags are useful for marking entities with a boolean state without any additional overhead.
 
 ## Defining Tags

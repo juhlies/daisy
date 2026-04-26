@@ -7,7 +7,7 @@ import { Callout } from 'nextra/components'
 # Types
 This section contains a deep dive explanation on all types supported by Daisy.
 <Callout type="warning">
-    These are mostly for Networking which is not yet implemented!
+    These are mostly for networking, which is not yet implemented!
 </Callout>
 
 ## Ranges
@@ -26,7 +26,7 @@ An exact range has only one value, such as `(0)` or `(100)`.
 
 ### Examples
 | Range | Min | Max |
-| :---- | ---- | ----: |
+| :---- | :---- | :---- |
 | `(0..100)` | `0` | `100` |
 | `(0..)` | `0` | `+infinity` |
 | `(..100)` | `-infinity` | `100` |
@@ -41,7 +41,7 @@ Number types start with a prefix like: `u`, `i` or `f`, and are followed by the 
 ### Unsigned Integers
 Unsigned integers are whole numbers, greater than or equal to zero.
 | Name | Size | Min | Max |
-| :---- | ---- | ---- | ----: |
+| :---- | :---- | :---- | :---- |
 | `u8` | `1 byte` | `0` | `255` |
 | `u16` | `2 bytes` | `0` | `65,535` |
 | `u32` | `4 bytes` | `0` | `4,294,967,295` |
@@ -49,7 +49,7 @@ Unsigned integers are whole numbers, greater than or equal to zero.
 ### Signed Integers
 Signed integers, unlike unsigned integers, can represent both positive and negative whole numbers.
 | Name | Size | Min | Max |
-| :---- | ---- | ---- | ----: |
+| :---- | :---- | :---- | :---- |
 | `i8` | `1 byte` | `-128` | `127` |
 | `i16` | `2 bytes` | `-32,768` | `32,767` |
 | `i32` | `4 bytes` | `-2,147,483,648` | `2,147,483,647` |
@@ -67,7 +67,7 @@ Unlike integers, the bit size of a floating point does not correlate to a hard r
 </Callout>
 
 | Name | Size | Min | Max |
-| :---- | ---- | ---- | ----: |
+| :---- | :---- | :---- | :---- |
 | `f16` | `2 byte` | `-2048` | `2048` |
 | `f32` | `4 bytes` | `-16,777,216` | `16,777,216` |
 | `f64` | `8 bytes` | `-9,007,199,254,740,992` | `9,007,199,254,740,992` |
@@ -302,7 +302,7 @@ type Location = CFrame
 ```
 
 ### Specifying Encoding
-CFrames can be passed two number types within angular brackets after the type, to be used for the positional and rotational encoding respectively. For example, a CFrame which uses an `i16` for it's positional encoding and a `f16` for it's rotational encoding can be defined like so:
+CFrames can be passed two number types within angular brackets after the type, to be used for the positional and rotational encoding respectively. For example, a CFrame which uses an `i16` for its positional encoding and a `f16` for its rotational encoding can be defined like so:
 ```daisy
 type MyCFrame = CFrame<i16, f16>
 ```
