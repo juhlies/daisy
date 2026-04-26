@@ -5,7 +5,7 @@ title: Options
 # Options
 Options go at the top of a source file and allow you to configure Daisy's output.
 
-```daisy copy
+```daisy
 option [OPTION] = [VALUE]
 ````
 
@@ -33,7 +33,7 @@ Allows you to specify where Daisy generates output files, relative to the source
 | :---- | :---- |
 | All | `"./"` |
 
-```daisy copy
+```daisy
 option Output = {
     Archetypes = "path/to/Archetypes",
     Components = "path/to/Components",
@@ -53,7 +53,7 @@ Whether to include the `--!native` flag at the top of compiled modules.
 | :---- | :---- |
 | `true`  | `true`, `false` |
 
-```daisy copy
+```daisy
 option Native = false
 ```
 
@@ -64,6 +64,6 @@ Whether to include the `--!strict` flag at the top of compiled modules.
 | :---- | :---- |
 | `true`  | `true`, `false` |
 
-```daisy copy
+```daisy
 option Strict = false
 ```
