@@ -16,7 +16,7 @@ system PoisonHurts = {
 ```
 
 ## Queries
-A `Query` defines which components a system will access on each matching entity. Only entities that satisfy the query will be processed by the system.
+A `Query` defines which components a system will access on each matching entity. Only entities that match the query will be processed by the system.
 
 ### Immutable Queries
 By default, components in a query are accessed immutably, the system can read their values but cannot modify them.

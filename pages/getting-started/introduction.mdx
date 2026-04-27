@@ -19,6 +19,8 @@ option Outputs = {
  
 component Health = u8(0..100)
 tag IsPoisoned
+
+archetype Person = {Health, IsPoisoned?}
  
 system PoisonHurts = {
     Query = {mut:Health},
@@ -43,9 +45,7 @@ In this example, we tell it to remove `1` health from entities with the `Health`
 --!strict
 
 local World = require(Path/To/World)
-
 local Components = require(Path/To/Components)
-local Tags = require(Path/To/Tags)
 
 type Mutable = {
     health: Components.Health,
@@ -63,15 +63,16 @@ Before the [Scheduler](/generated-api/scheduler) will run any of your [systems](
 local ECS = path.to.ECS
 
 local World = require(ECS.World)
+local Factory = require(ECS.Factory)
 local Scheduler = require(ECS.Scheduler)
 
 local Components = require(ECS.Components)
 local Tags = require(ECS.Tags)
 
-local entity = World.Spawn()
-World.Set(entity, Components.Health, 100)
+local entity = Factory.Person(100)
 World.Add(entity, Tags.IsPoisoned)
 
 Scheduler.Start()
 ```
+
 </Steps>

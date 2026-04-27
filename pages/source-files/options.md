@@ -46,6 +46,17 @@ option Output = {
 ```
 The last segment of each path is used as the output file name (e.g. `"path/to/Archetypes"` becomes `Archetypes.luau`).
 
+## `Signals`
+Controls whether or not certain world functions emit signals.
+
+| Default | Options |
+| :---- | :---- |
+| `false`  | `true`, `false` |
+
+```daisy
+option Signals = false
+```
+
 ## `Native`
 Whether to include the `--!native` flag at the top of compiled modules.
 

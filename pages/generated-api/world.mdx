@@ -1,0 +1,80 @@
+---
+title: World
+---
+
+import { Steps, Callout } from 'nextra/components'
+
+# World
+The world stores all of your Entities and Components, providing an API to manage them.
+
+## Functions
+All function return values include an appended `boolean` indicating whether the operation was successful.
+
+### .Spawn
+Spawns a new empty entity.
+```luau
+World.Spawn(): Entity, boolean
+```
+<Callout type="warning">
+    Unless you know what you're doing, you should use the [factory](factory) to spawn your entities instead.
+</Callout>
+
+### .Despawn
+Despawns an entity, as well as all of it's components.
+```luau
+World.Despawn(
+    entity, --The Entity Id
+): boolean
+```
+
+### .Cleanup
+Despawns all entities.
+```luau
+World.Cleanup(): boolean
+```
+
+### .Set
+Assigns a value to a component on the given entity, adding the component if the entity does not already have it.
+```luau
+World.Set(
+    entity, --The Entity Id
+    id, --The Component Id to set
+    value
+): boolean
+```
+
+### .Add
+Adds a component or tag to the specified entity.
+```luau
+World.Add(
+    entity, --The Entity Id
+    id --The Component/Tag Id to add
+): boolean
+```
+
+### .Get
+Retrieves the value of a component, returning `nil` if the component is a tag or is not present on the entity.
+```luau
+World.Get(
+    entity, --The Entity Id
+    id --The Component Id to get
+): any, boolean
+```
+
+### .Has
+Checks whether a component is present on an entity, returning `true` if the entity has the component, and `false` if it does not.
+```luau
+World.Has(
+    entity, --The Entity Id
+    id --The Component/Tag Id to check
+): boolean, boolean
+```
+
+### .Remove
+Adds a component/tag to the given entity.
+```luau
+World.Remove(
+    entity, --The Entity Id
+    id --The Component/Tag Id to remove
+): boolean
+```
