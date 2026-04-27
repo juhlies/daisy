@@ -28,12 +28,6 @@ export const pageMap = [{
       "title": "Scheduler"
     }
   }, {
-    name: "systems",
-    route: "/generated-api/systems",
-    frontMatter: {
-      "title": "Systems"
-    }
-  }, {
     name: "world",
     route: "/generated-api/world",
     frontMatter: {
