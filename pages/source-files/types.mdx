@@ -60,10 +60,10 @@ Floating points represent numbers with a decimal point.
 Unlike integers, the bit size of a floating point does not correlate to a hard range limit. Instead it determines its numerical accuracy (or precision). For this reason, the table below lists the maximum accurately representable integer by each floating point type.
 
 <Callout type="info">
-    Internally Luau stores its numbers as a `f64`.
+    Internally Luau stores its numbers as an `f64`.
 </Callout>
 <Callout type="info">
-    The f16 type isn't natively supported by the buffer library, making it slower to read and write than other types.
+    The `f16` type isn't natively supported by the buffer library, making it slower to read and write than other types.
 </Callout>
 
 | Name | Size | Min | Max |
@@ -308,7 +308,7 @@ type MyCFrame = CFrame<i16, f16>
 ```
 
 <Callout type="warning">
-    The numerical precision limitations of vectors also apply to CFrames. <br/>
+    The numerical precision limitations of `vectors` also apply to `CFrames`. <br/>
     Furthermore, using an integer type for the rotational encoding will result in the rotation being zeroed out.
 </Callout>
 

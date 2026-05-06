@@ -2,6 +2,8 @@
 title: Options
 ---
 
+import { Callout } from 'nextra/components'
+
 # Options
 Options go at the top of a source file and allow you to configure Daisy's output.
 
@@ -78,3 +80,19 @@ Whether to include the `--!strict` flag at the top of compiled modules.
 ```daisy
 option Strict = false
 ```
+
+## `Physics`
+| Type| Default | Options |
+| :---- | :---- | :---- |
+| Frequency | `30` | `60`, `30`, `15`, `10`, `5`, `1` |
+| Priority | `2000` | any [`f64`](/source-files/types#floating-points) value |
+
+```daisy
+option Physics = {
+    Frequency = 60,
+    Priority = 1000
+}
+```
+<Callout type="warning">
+    The `Physics` option is only required when using the [`Simulation`](/source-files/systems#simulation-phase) phase.
+</Callout>

@@ -2,6 +2,8 @@
 title: Systems
 ---
 
+import { Callout } from 'nextra/components'
+
 # Systems
 A `system` is a process that runs on all entities matching a given set of component requirements. Systems are where all of your game's logic lives, each system is responsible for one focused behavior.
 
@@ -82,8 +84,19 @@ Each RunService event (excluding Heartbeat) corresponds to its own phase.
 - `PostUpdate`
 - `Last`
 
-### Priority
-Priority controls the order in which systems within the same phase execute. A lower number runs first, and a higher number runs later. If no priority is specified, systems run in the order they were declared.
+### Simulation Phase
+<Callout type="warning">
+    The `Simulation` phase is only available when `Workspace.UseFixedSimulation` is enabled.
+</Callout>
+The `Simulation` phase runs using Roblox's fixed-step simulation via `RunService:BindToSimulation`. Unlike other phases, it executes at a fixed frequency independant of frame rate, making it ideal for deterministic logic such as physics, prediction or rollback systems.<br/>
+You can configure the step frequency using the [`Physics`](/source-files/options#physics) option.
+<Callout type="info">
+    The [`Physics.Priority`](/source-files/options#physics) option is not linked to [`Phase Priority`](#phase-priority)<br/>
+    it only exists in case you are already using `RunService:BindToSimulation` elsewhere.
+</Callout>
+
+### Phase Priority
+Phase Priority controls the order in which systems within the same phase execute. A lower number runs first, and a higher number runs later. If no priority is specified, systems run in the order they were declared.
 
 ```daisy
 system RunFirst = {
