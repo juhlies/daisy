@@ -1,3 +1,5 @@
+### currently rewriting this.
+
 # Daisy
 An IDL compiler for defining and generating project specified ECS implementations.
 ## Performance
